@@ -14,7 +14,7 @@ namespace Injection.Controllers
         private readonly ContexteBDD _context = new ContexteBDD();
 
         // GET: Injection
-        public async Task<IActionResult> Index()
+        public async Task<IActionResult> Index(int id)
         {
             return View(await _context.Injection.ToListAsync());
         }
