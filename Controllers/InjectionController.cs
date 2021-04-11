@@ -75,6 +75,9 @@ namespace Injection.Controllers
         // GET: Injection/Edit/5
         public async Task<IActionResult> Edit(int? id)
         {
+            ViewData["listeDesVaccins"] = new SelectList(_context.Vaccin, "Id", "Nom");
+            ViewData["listeDesPersonnes"] = new SelectList(_context.Personne, "Id", "Nom");
+
             if (id == null)
             {
                 return NotFound();
@@ -118,6 +121,8 @@ namespace Injection.Controllers
                 }
                 return RedirectToAction(nameof(Index));
             }
+            ViewData["listeDesVaccins"] = new SelectList(_context.Vaccin, "Id", "Nom");
+            ViewData["listeDesPersonnes"] = new SelectList(_context.Personne, "Id", "Nom");
             return View(injection);
         }
 
